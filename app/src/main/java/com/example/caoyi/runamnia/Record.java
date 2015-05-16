@@ -1,4 +1,6 @@
-package com.example.caoyi.runamnia.util;
+package com.example.caoyi.runamnia;
+
+import com.example.caoyi.runamnia.util.RunningRecord;
 
 import java.util.*;
 
@@ -8,16 +10,47 @@ import java.util.*;
 public class Record {
     private String name;
     private char gender;
+    private double height;
+    private double weight;
     private ArrayList<RunningRecord> runHistory;
-    private HashMap<String, Boolean> challenges = new HashMap<String, Boolean>();
+    private Map<String, Map<String,Boolean>> challenges = new HashMap<String, Map<String,Boolean>>();
 
 
 
-    public Record(String n, char g, ArrayList<RunningRecord> rh){
+    public Record(String n, char g, double h, double w, ArrayList<RunningRecord> rh){
         name = n;
         gender = g;
+        height = h;
         runHistory = rh;
-        challenges.put("", false);
+//        Map<String, Boolean> map = new HashMap<String, Boolean>();
+        challenges.put("Run",new HashMap<String,Boolean>().put("This is ...",false));
+        challenges.put("Run10mins",);
+        challenges.put("Run20mins", false);
+        challenges.put("Run30mins", false);
+        challenges.put("Run40mins", false);
+        challenges.put("Run50mins", false);
+        challenges.put("Run60mins", false);
+        challenges.put("Run90mins", false);
+        challenges.put("Run120mins", false);
+        challenges.put("Run5k", false);
+        challenges.put("Run10k", false);
+        challenges.put("Run15k", false);
+        challenges.put("Run20k", false);
+        challenges.put("Run40k",false);
+        challenges.put("Run5kin30mins", false);
+        challenges.put("Run10kin60mins", false);
+        challenges.put("Run90mins", false);
+        challenges.put("Run120mins", false);
+        challenges.put("Run5k", false);
+        challenges.put("Run10k", false);
+        challenges.put("Run15k", false);
+        challenges.put("Run20k", false);
+        challenges.put("Run40k",false);
+        challenges.put("Run5kin30mins", false);
+        challenges.put("Run10kin60mins", false);
+
+
+
     }
 
 
@@ -52,6 +85,8 @@ public class Record {
         runHistory.add(rr);
     }
 
-    void setChallenges(String c)
+    void setChallenges(String c){
+        challenges.put(c,true);
+    }
 
 }
