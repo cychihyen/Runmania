@@ -18,7 +18,7 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class IndoorRunnerActivity extends ActionBarActivity implements SensorEventListener, View.OnClickListener {
+public class IndoorRunnerActivity extends ActionBarActivity implements SensorEventListener{
     Button playBtn;
     Button pauseBtn;
     private SensorManager sensorManager;
