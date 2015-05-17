@@ -84,10 +84,9 @@ public class runmania extends Activity {
     }
 
     private void enterCreateRoomPage() {
-        Intent intent = new Intent();
-        Bundle bundle=new Bundle();
-        intent.setClass(this, CreateRoomActivity.class);
-        intent.putExtras(bundle);
+        Intent intent = new Intent(this, CreateRoomActivity.class);
+        //Bundle bundle=new Bundle();
+        //intent.putExtras(bundle);
         startActivity(intent);
     }
 
