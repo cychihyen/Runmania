@@ -17,51 +17,51 @@ public class RunningRecord {
      * Helper Functions
      */
 
-    Date getStartTime(){
+    public Date getStartTime(){
         return startTime;
     }
 
-    Date getEndTime(){
+    public Date getEndTime(){
         return endTime;
     }
 
-    double getCalories(){
+    public double getCalories(){
         return calories;
     }
 
-    double getDistance(){
+    public double getDistance(){
         return distance;
     }
 
-    double getWeight(){
+    public double getWeight(){
         return weight;
     }
 
-    double getHeight(){
+    public double getHeight(){
         return height;
     }
 
-    void setStartTime(Date d){
+    public void setStartTime(Date d){
         startTime = d;
     }
 
-    void setEndTime(Date d){
+    public void setEndTime(Date d){
         endTime = d;
     }
 
-    void setCalories(double c){
+    public void setCalories(double c){
         calories = c;
     }
 
-    void setDistance(double d){
+    public void setDistance(double d){
         distance = d;
     }
 
-    void setWeight(double w){
+    public void setWeight(double w){
         weight = w;
     }
 
-    void setHeight(double h){
+    public void setHeight(double h){
         height = h;
     }
 }

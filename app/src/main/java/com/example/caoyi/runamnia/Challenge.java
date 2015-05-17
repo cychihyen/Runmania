@@ -15,19 +15,19 @@ public class Challenge {
     /**
      * Helper Functions.
      */
-    void setCompleted(boolean b){
+    public void setCompleted(boolean b){
         completed = b;
     }
 
-    void setName(String n){
+    public void setName(String n){
         name = n;
     }
 
-    String getName(){
+    public String getName(){
         return name;
     }
 
-    boolean getCompleted(){
+    public boolean getCompleted(){
         return completed;
     }
 }

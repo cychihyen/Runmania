@@ -58,8 +58,8 @@ public class Record {
         challenges.put("Get10challenges",new Challenge("Complete 30 challenges"));
 
         challenges.put("Get3challengesin1day",new Challenge("Complete 3 challenges in a day"));
-        challenges.put("Get3challengesin1day",new Challenge("Complete 5 challenges in a day"));
-        challenges.put("Get3challengesin1day",new Challenge("Complete 10 challenges in a day"));
+        challenges.put("Get5challengesin1day",new Challenge("Complete 5 challenges in a day"));
+        challenges.put("Get10challengesin1day",new Challenge("Complete 10 challenges in a day"));
 
     }
 
@@ -67,35 +67,43 @@ public class Record {
     /**
      * Helper Functions
      */
-    String getName(){
+    public String getName(){
         return name;
     }
 
-    char getGender(){
+    public char getGender(){
         return gender;
     }
 
-    ArrayList<RunningRecord> getRunHistory(){
+    public double getWeight(){
+        return weight;
+    }
+
+    public double getHeight(){
+        return height;
+    }
+
+    public ArrayList<RunningRecord> getRunHistory(){
         return runHistory;
     }
 
-    Map<String, Challenge> getChallenges(){
+    public Map<String, Challenge> getChallenges(){
         return challenges;
     }
 
-    void setName(String n){
+    public void setName(String n){
         name = n;
     }
 
-    void setGender(char g){
+    public void setGender(char g){
         gender = g;
     }
 
-    void addRunHistoy(RunningRecord rr){
+    public void addRunHistoy(RunningRecord rr){
         runHistory.add(rr);
     }
 
-    void setChallenges(String c){
+    public void setChallenges(String c){
         challenges.get(c).setCompleted(true);
     }
 
