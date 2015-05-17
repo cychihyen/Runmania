@@ -27,11 +27,11 @@ public class IndoorRunnerActivity extends ActionBarActivity implements SensorEve
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        playBtn = (Button) findViewById(R.id.button_start);
-        pauseBtn = (Button) findViewById(R.id.button_end);
+        playBtn = (Button) findViewById(R.id.start_button);
+        pauseBtn = (Button) findViewById(R.id.end_button);
         playBtn.setOnClickListener(this);
         pauseBtn.setOnClickListener(this);
-        setContentView(R.layout.activity_indoor_runner);
+        setContentView(R.layout.main_page);
         sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         activityRunning = true;
 
@@ -113,14 +113,14 @@ public class IndoorRunnerActivity extends ActionBarActivity implements SensorEve
             /**
              * Run starts here.
              */
-            case R.id.button_start:
+            case R.id.start_button:
                 playBtn.setVisibility(Button.GONE);
                 pauseBtn.setVisibility(Button.VISIBLE);
                 break;
             /**
              * Run starts here.
              */
-            case R.id.button_end:
+            case R.id.end_button:
                 pauseBtn.setVisibility(Button.GONE);
                 playBtn.setVisibility(Button.VISIBLE);
                 break;
@@ -129,5 +129,10 @@ public class IndoorRunnerActivity extends ActionBarActivity implements SensorEve
 
     public void endRunning(View v){
         activityRunning = false;
+    }
+
+    @Override
+    public void onClick(View view) {
+
     }
 }

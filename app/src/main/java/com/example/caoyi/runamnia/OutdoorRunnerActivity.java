@@ -11,7 +11,7 @@ public class OutdoorRunnerActivity extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_outdoor_runner);
+        setContentView(R.layout.main_page);
     }
 
 
