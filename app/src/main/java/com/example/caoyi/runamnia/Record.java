@@ -43,13 +43,13 @@ public class Record {
         challenges.put("Burn200cals",new Challenge("Burn 200 calories!"));
         challenges.put("Burn300cals",new Challenge("Burn 300 calories!"));
         challenges.put("Burn400cals",new Challenge("Burn 400 calories!"));
-        challenges.put("Burn400cals",new Challenge("Burn 500 calories!"));
-        challenges.put("Burn400cals",new Challenge("Burn 600 calories!"));
-        challenges.put("Burn400cals",new Challenge("Burn 700 calories!"));
+        challenges.put("Burn500cals",new Challenge("Burn 500 calories!"));
+        challenges.put("Burn600cals",new Challenge("Burn 600 calories!"));
+        challenges.put("Burn700cals",new Challenge("Burn 700 calories!"));
 
         challenges.put("Get10challenges",new Challenge("Complete 10 challenges"));
-        challenges.put("Get10challenges",new Challenge("Complete 20 challenges"));
-        challenges.put("Get10challenges",new Challenge("Complete 30 challenges"));
+        challenges.put("Get20challenges",new Challenge("Complete 20 challenges"));
+        challenges.put("Get30challenges",new Challenge("Complete 30 challenges"));
 
         challenges.put("Get3challengesin1day",new Challenge("Complete 3 challenges in a day"));
         challenges.put("Get5challengesin1day",new Challenge("Complete 5 challenges in a day"));
@@ -88,13 +88,13 @@ public class Record {
         challenges.put("Burn200cals",new Challenge("Burn 200 calories!"));
         challenges.put("Burn300cals",new Challenge("Burn 300 calories!"));
         challenges.put("Burn400cals",new Challenge("Burn 400 calories!"));
-        challenges.put("Burn400cals",new Challenge("Burn 500 calories!"));
-        challenges.put("Burn400cals",new Challenge("Burn 600 calories!"));
-        challenges.put("Burn400cals",new Challenge("Burn 700 calories!"));
+        challenges.put("Burn500cals",new Challenge("Burn 500 calories!"));
+        challenges.put("Burn600cals",new Challenge("Burn 600 calories!"));
+        challenges.put("Burn700cals",new Challenge("Burn 700 calories!"));
 
         challenges.put("Get10challenges",new Challenge("Complete 10 challenges"));
-        challenges.put("Get10challenges",new Challenge("Complete 20 challenges"));
-        challenges.put("Get10challenges",new Challenge("Complete 30 challenges"));
+        challenges.put("Get20challenges",new Challenge("Complete 20 challenges"));
+        challenges.put("Get30challenges",new Challenge("Complete 30 challenges"));
 
         challenges.put("Get3challengesin1day",new Challenge("Complete 3 challenges in a day"));
         challenges.put("Get5challengesin1day",new Challenge("Complete 5 challenges in a day"));

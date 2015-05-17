@@ -12,7 +12,10 @@ import android.widget.TextView;
 import android.hardware.*;
 import android.widget.Toast;
 
+import com.example.caoyi.runamnia.util.RunningRecord;
+
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import java.util.Date;
 
 public class IndoorRunnerActivity extends ActionBarActivity implements SensorEventListener, View.OnClickListener {
@@ -71,16 +74,12 @@ public class IndoorRunnerActivity extends ActionBarActivity implements SensorEve
         //user hit stop button -> get end time
 
 
-        //calculate calories
-        calculateCalories();
 
+        double cal = calculateCalories();
+        RunningRecord runningRecord = new RunningRecord(startTime, endTime, cal, totalDistance, userRecord.getWeight(), userRecord.getHeight());
+        userRecord.addRunningRecord(runningRecord);
+        checkChallenges(userRecord);
 
-        //get distance,endtime
-
-
-
-        //add runningRecord constructor
-        //  -> userRecord.addRunningRecord(rr);
         //check challenge (complete -> true)
         //update user record (sets function)
         //userJsonWriter.writeeToFile(userRecord);
@@ -97,6 +96,54 @@ public class IndoorRunnerActivity extends ActionBarActivity implements SensorEve
         return 1000;
     }
 
+    public void checkChallenges(Record record){
+        ArrayList<RunningRecord> tempRecords = record.getRunHistory();
+
+        for(int i = 0; i<tempRecords.size(); i++){
+            RunningRecord tempRunningRecord = tempRecords.get(i);
+            //long tempTime = tempRunningRecord.getStartTime()-tempRunningRecord.getEndTime();
+            double tempDistance = tempRunningRecord.getDistance();
+            double tempCaloreis = tempRunningRecord.getCalories();
+
+            if(tempDistance >= 40000){
+                record.setChallenges("Run40k");
+                record.setChallenges("Run30k");
+                record.setChallenges("Run20k");
+                record.setChallenges("Run10k");
+                record.setChallenges("Run5k");
+            }
+            else if(tempDistance >= 30000){
+                record.setChallenges("Run30k");
+                record.setChallenges("Run20k");
+                record.setChallenges("Run10k");
+                record.setChallenges("Run5k");
+            }
+            else if(tempDistance >= 20000){
+                record.setChallenges("Run20k");
+                record.setChallenges("Run10k");
+                record.setChallenges("Run5k");
+            }
+            else if(tempDistance >= 10000 && tempTime < 60){
+                record.setChallenges("Run10k");
+                record.setChallenges("Run5k");
+                record.setChallenges("Run10kin60mins");
+            }
+            else if (tempDistance >= 10000){
+                record.setChallenges("Run10k");
+                record.setChallenges("Run5k");
+            }
+            else if (tempDistance >= 5000 && tempTime < 30){
+                record.setChallenges("Run5kin30mins");
+                record.setChallenges("Run5k");
+            }
+            else if (tempDistance >= 5000){
+                record.setChallenges("Run5k");
+            }
+
+        }
+
+
+    }
 
     synchronized private void updateLoop(Sensor countSensor){
         while(activityRunning){
