@@ -52,7 +52,7 @@ public class IndoorRunnerActivity extends ActionBarActivity implements SensorEve
         /**
          * Get start time.
          */
-        startTime = new Date();
+        startTime = Date();
 
         userRecord = userJsonReader.readFromFile();
         Sensor countSensor = sensorManager.getDefaultSensor(Sensor.TYPE_STEP_COUNTER);
@@ -69,7 +69,6 @@ public class IndoorRunnerActivity extends ActionBarActivity implements SensorEve
 
         Date endTime = new Date();
         double steps = count;
-
 
         //user hit stop button -> get end time
 
@@ -101,7 +100,9 @@ public class IndoorRunnerActivity extends ActionBarActivity implements SensorEve
 
         for(int i = 0; i<tempRecords.size(); i++){
             RunningRecord tempRunningRecord = tempRecords.get(i);
-            //long tempTime = tempRunningRecord.getStartTime()-tempRunningRecord.getEndTime();
+            long startTime = tempRunningRecord.getStartTime().getTime()/1000;
+            long endTime = tempRunningRecord.getEndTime().getTime()/1000;
+            long tempTime = endTime-startTime;
             double tempDistance = tempRunningRecord.getDistance();
             double tempCaloreis = tempRunningRecord.getCalories();
 
@@ -191,9 +192,7 @@ public class IndoorRunnerActivity extends ActionBarActivity implements SensorEve
     }
 
     @Override
-    public void onAccuracyChanged(Sensor sensor, int accuracy) {
-
-    }
+    public void onAccuracyChanged(Sensor sensor, int accuracy) {}
 
     public void startRunning(View v) {
         switch (v.getId()) {
