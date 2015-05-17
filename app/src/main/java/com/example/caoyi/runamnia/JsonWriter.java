@@ -31,7 +31,10 @@ public class JsonWriter {
         company.add("Compnay: Google");
         obj.put("Company List", company);
 
-        FileWriter file = new FileWriter("/Users/<username>/Documents/file1.txt");
+        FileWriter file = new FileWriter("/Users/de-weikung/AndroidStudioProjects/Runmania/app/src/main/res/userInfo.config");
+
+
+
         try {
             file.write(obj.toJSONString());
             System.out.println("Successfully Copied JSON Object to File...");
