@@ -67,7 +67,9 @@ public class IndoorRunnerActivity extends ActionBarActivity implements SensorEve
         long endTime=new Date().getTime()/1000; // unit: sec
         double steps = count;
         double calories = calculateCalories(startTime, endTime, userRecord); // unit kcal
-        RunningRecord runningRecord = new RunningRecord(startTime, endTime, calories, totalDistance, userRecord.getWeight(), userRecord.getHeight());
+
+        RunningRecord runningRecord = new RunningRecord(startDate, endDate, calories, totalDistance, userRecord.getWeight(), userRecord.getHeight());
+
         userRecord.addRunningRecord(runningRecord);
         checkChallenges(userRecord);
 
@@ -93,7 +95,7 @@ public class IndoorRunnerActivity extends ActionBarActivity implements SensorEve
 
     public void checkChallenges(Record record){
         ArrayList<RunningRecord> tempRecords = record.getRunHistory();
-        int prevChallengeCount
+        int prevChallengeCount;
 
 
         for(int i = 0; i<tempRecords.size(); i++){
