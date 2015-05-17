@@ -14,7 +14,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Create a room"
-            android:id="@+id/create_button" />
+            android:id="@+id/create_button"
+            android:nestedScrollingEnabled="false" />
 
         <Button
             android:layout_width="wrap_content"

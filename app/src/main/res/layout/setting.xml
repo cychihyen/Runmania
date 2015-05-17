@@ -33,10 +33,24 @@
             android:text="Gender : "
             android:id="@+id/gender_TextView" />
 
-        <EditText
-            android:layout_width="fill_parent"
+        <RadioGroup
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/user_gender" />
+            android:id="@+id/radioGroupGender">
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Male"
+                android:id="@+id/radioButtonMale"
+                android:checked="true" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Female"
+                android:id="@+id/radioButtonFemale" />
+        </RadioGroup>
 
     </LinearLayout>
 

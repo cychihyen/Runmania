@@ -16,8 +16,9 @@ import java.io.FileNotFoundException;
 import java.util.Date;
 
 public class IndoorRunnerActivity extends ActionBarActivity implements SensorEventListener, View.OnClickListener {
-    Button playBtn;
+    Button startBtn;
     Button pauseBtn;
+    Button endBtn;
     private SensorManager sensorManager;
     private double count;
     boolean activityRunning;
@@ -27,10 +28,13 @@ public class IndoorRunnerActivity extends ActionBarActivity implements SensorEve
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        playBtn = (Button) findViewById(R.id.start_button);
-        pauseBtn = (Button) findViewById(R.id.end_button);
-        playBtn.setOnClickListener(this);
+        startBtn = (Button) findViewById(R.id.start_button);
+        pauseBtn = (Button) findViewById(R.id.pause_button);
+        endBtn = (Button) findViewById(R.id.end_button);
+        startBtn.setOnClickListener(this);
         pauseBtn.setOnClickListener(this);
+        endBtn.setOnClickListener(this);
+
         setContentView(R.layout.main_page);
         sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         activityRunning = true;
@@ -114,15 +118,18 @@ public class IndoorRunnerActivity extends ActionBarActivity implements SensorEve
              * Run starts here.
              */
             case R.id.start_button:
-                playBtn.setVisibility(Button.GONE);
+                startBtn.setVisibility(Button.GONE);
                 pauseBtn.setVisibility(Button.VISIBLE);
+                endBtn.setVisibility(Button.VISIBLE);
                 break;
             /**
-             * Run starts here.
+             * Run ends here.
              */
             case R.id.end_button:
-                pauseBtn.setVisibility(Button.GONE);
-                playBtn.setVisibility(Button.VISIBLE);
+                endBtn.setVisibility(Button.GONE);
+                startBtn.setVisibility(Button.VISIBLE);
+                pauseBtn.setVisibility(Button.VISIBLE);
+                endRunning(v);
                 break;
         }
     }
