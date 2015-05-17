@@ -67,7 +67,7 @@ public class IndoorRunnerActivity extends ActionBarActivity implements SensorEve
         long endTime=new Date().getTime()/1000; // unit: sec
         double steps = count;
         double calories = calculateCalories(startTime, endTime, userRecord); // unit kcal
-        RunningRecord runningRecord = new RunningRecord(startTime, endTime, cal, totalDistance, userRecord.getWeight(), userRecord.getHeight());
+        RunningRecord runningRecord = new RunningRecord(startTime, endTime, calories, totalDistance, userRecord.getWeight(), userRecord.getHeight());
         userRecord.addRunningRecord(runningRecord);
         checkChallenges(userRecord);
 
@@ -125,7 +125,7 @@ public class IndoorRunnerActivity extends ActionBarActivity implements SensorEve
                 record.setChallenges("Run10k");
                 record.setChallenges("Run5k");
             }
-            else if(tempDistance >= 10000 && tempTime < 60){
+            else if(tempDistance >= 10000 && tempTime/60 < 60){
                 record.setChallenges("Run10k");
                 record.setChallenges("Run5k");
                 record.setChallenges("Run10kin60mins");
@@ -134,7 +134,7 @@ public class IndoorRunnerActivity extends ActionBarActivity implements SensorEve
                 record.setChallenges("Run10k");
                 record.setChallenges("Run5k");
             }
-            else if (tempDistance >= 5000 && tempTime < 30){
+            else if (tempDistance >= 5000 && tempTime/60 < 30){
                 record.setChallenges("Run5kin30mins");
                 record.setChallenges("Run5k");
             }
@@ -207,7 +207,7 @@ public class IndoorRunnerActivity extends ActionBarActivity implements SensorEve
         while(activityRunning){
 
             runmania.sendInstantDistance(tempDistance);
-            String usersSpeeds runmania.requestFromServer();
+            String usersSpeeds = runmania.requestFromServer();
             // send data to server
             // update view using tmp Class
             try {
