@@ -22,6 +22,12 @@
                 <categoty android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+        <activity android:name=".IndoorRunnerActivity"
+            android:label="indoor run" >
+            <intent-filter>
+                <categoty android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

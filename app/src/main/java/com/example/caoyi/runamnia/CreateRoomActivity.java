@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 /**
@@ -35,7 +36,23 @@ public class CreateRoomActivity extends Activity {
     };
 
     private void createRoomBtnOnClick(View view) {
-        enterRoom(runmania.RunType.INDOOR);
+        EditText etRoom = (EditText) findViewById(R.id.room_name);
+        EditText etDes = (EditText) findViewById(R.id.room_description);
+        String roomName = etRoom.getText().toString();
+        String roomDescription = etDes.getText().toString();
+
+        if(!isNullOrEmpty(roomName) && !isNullOrEmpty(roomDescription)) {
+            //if(sendCreateRoomRequset to Server ) {
+            //enterRoom(runmania.RunType.INDOOR);
+            //}
+        }
+    }
+
+    private boolean isNullOrEmpty(String s) {
+        if(s==null || s.isEmpty()){
+            return true;
+        }
+        return false;
     }
 
     private void enterRoom(int runType) {
