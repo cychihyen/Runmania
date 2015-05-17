@@ -142,7 +142,7 @@ public class Record {
         runHistory = arr;
     }
 
-    public void addRunHistoy(RunningRecord rr){
+    public void addRunningRecord(RunningRecord rr){
         runHistory.add(rr);
     }
 

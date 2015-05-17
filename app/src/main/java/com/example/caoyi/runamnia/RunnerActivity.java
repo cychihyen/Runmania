@@ -15,12 +15,17 @@ public class RunnerActivity extends ActionBarActivity {
 
         UserJsonReader userJsonReader = new UserJsonReader();
         UserJsonWriter userJsonWriter = new UserJsonWriter();
-//        Start time
-
-//        To do: API
-
-//
-
+        //Get start time
+        Record userRecord = userJsonReader.readFromFile();
+        //loop API updates
+        //user push stop button -> get end time
+        //calculate calories
+        //get distance,endtime
+        //add runningRecord constructor
+        //  -> userRecord.addRunningRecord(rr);
+        //check challenge (complete -> true)
+        //update user record (sets function)
+        //userJsonWriter.writeeToFile(userRecord);
     }
 
 
