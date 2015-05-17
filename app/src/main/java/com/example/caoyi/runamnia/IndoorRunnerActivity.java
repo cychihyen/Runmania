@@ -22,9 +22,14 @@ public class IndoorRunnerActivity extends ActionBarActivity implements SensorEve
     private double count;
     boolean activityRunning;
 
+
     private double tempDistance = 0;
     private double tempTimestamp = 0;
     Record userRecord;
+
+    double totalDistance=0;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +58,7 @@ public class IndoorRunnerActivity extends ActionBarActivity implements SensorEve
         } else {
             Toast.makeText(this, "Count sensor not available!", Toast.LENGTH_LONG).show();
         }
+
         /**
          * loop sensor updates
          */
@@ -63,8 +69,14 @@ public class IndoorRunnerActivity extends ActionBarActivity implements SensorEve
 
 
         //user hit stop button -> get end time
+
+
         //calculate calories
+        calculateCalories();
+
+
         //get distance,endtime
+
 
 
         //add runningRecord constructor
@@ -80,17 +92,26 @@ public class IndoorRunnerActivity extends ActionBarActivity implements SensorEve
     }
     }
 
+//    To do: implement calculateCalories()
+    public int calculateCalories(){
+        return 1000;
+    }
+
+
     synchronized private void updateLoop(Sensor countSensor){
         while(activityRunning){
-            runmania.sendInstantDistance(distance);
+
+            runmania.sendInstantDistance(tempDistance);
             String usersSpeeds runmania.requestFromServer();
             // send data to server
             // update view using tmp Class
             try {
+
                    Thread.sleep(500); //Constant
             } catch (Exception e) {
 
             }
+
 
 
         }
@@ -98,13 +119,26 @@ public class IndoorRunnerActivity extends ActionBarActivity implements SensorEve
 
     @Override
     public void onSensorChanged(SensorEvent event){
+        boolean first=true;
+        double previousTotalDistance = 0;
         if(activityRunning){
             int stepCount = (int) event.values[0];
             double height = userRecord.getHeight();
-            tempDistance = stepCount*(height/0.8);
-            tempTimestamp = new Date() - startTime;
 
+            if (first) {
+                totalDistance = stepCount*(height/0.8);
+                previousTotalDistance = totalDistance;
+                first=false;
+            }
+            else{
+                previousTotalDistance=totalDistance;
+                totalDistance = stepCount*(height/0.8);
+//                totalDistance+=previousTotalDistance;
+            }
+//            tempTimestamp = new Date() - startTime;
+            tempDistance=totalDistance - previousTotalDistance;
             // update tmp Class
+
 
         }
     }
