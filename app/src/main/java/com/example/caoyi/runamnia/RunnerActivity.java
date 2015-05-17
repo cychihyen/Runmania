@@ -5,6 +5,9 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import java.io.FileNotFoundException;
+import java.text.ParseException;
+
 
 public class RunnerActivity extends ActionBarActivity {
 
@@ -12,20 +15,35 @@ public class RunnerActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_runner);
-
+    try {
         UserJsonReader userJsonReader = new UserJsonReader();
         UserJsonWriter userJsonWriter = new UserJsonWriter();
         //Get start time
+
         Record userRecord = userJsonReader.readFromFile();
+
         //loop API updates
-        //user push stop button -> get end time
+        while(!hitStop){
+
+        }
+
+        //user hit stop button -> get end time
         //calculate calories
         //get distance,endtime
+
+
         //add runningRecord constructor
         //  -> userRecord.addRunningRecord(rr);
         //check challenge (complete -> true)
         //update user record (sets function)
         //userJsonWriter.writeeToFile(userRecord);
+    }
+    catch (FileNotFoundException fileNotFoundException){
+
+    }
+    catch (org.json.simple.parser.ParseException parseException){
+
+    }
     }
 
 
