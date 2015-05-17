@@ -1,20 +1,25 @@
 package com.example.caoyi.runamnia;
 
+import android.hardware.SensorManager;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 import java.io.FileNotFoundException;
-import java.text.ParseException;
 
 
-public class RunnerActivity extends ActionBarActivity {
+public class IndoorRunnerActivity extends ActionBarActivity {
+
+    private SensorManager sensorManager;
+    private TextView count;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_runner);
+        setContentView(R.layout.activity_indoor_runner);
     try {
         UserJsonReader userJsonReader = new UserJsonReader();
         UserJsonWriter userJsonWriter = new UserJsonWriter();
