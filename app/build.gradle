@@ -20,9 +20,10 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile fileTree(include: ['*.jar'], dir: 'libs')
     compile 'com.android.support:appcompat-v7:21.0.3'
     compile 'com.android.support:support-v4:21.0.3'
     compile 'javax.json:javax.json-api:1.0'
     compile files('/Users/ting/AndroidStudioProjects/Runmania/libs/json-simple-1.1.1.jar')
+    compile files('/Users/caoyi/AndroidStudioProjects/Runmania/libs/json-simple-1.1.1.jar')
 }
