@@ -13,6 +13,15 @@ public class RunningRecord {
     private double weight;
     private double height;
 
+    public RunningRecord(Date sd, Date ed, double c, double d, double w, double h){
+        startTime = sd;
+        endTime = ed;
+        calories = c;
+        distance = d;
+        weight = w;
+        height = h;
+    }
+
     /**
      * Helper Functions
      */
