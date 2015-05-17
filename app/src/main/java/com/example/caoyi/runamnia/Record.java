@@ -156,5 +156,13 @@ public class Record {
     public void setChallenges(String c){
         challenges.get(c).setCompleted(true);
     }
+    public int getCompletedCount(){
+        int count = 0;
+        for(String key: challenges.keySet()){
+            if(challenges.get(key).getCompleted())
+                count++;
+        }
+        return count;
+    }
 
 }

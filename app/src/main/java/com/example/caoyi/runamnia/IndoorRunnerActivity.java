@@ -97,14 +97,19 @@ public class IndoorRunnerActivity extends ActionBarActivity implements SensorEve
 
     public void checkChallenges(Record record){
         ArrayList<RunningRecord> tempRecords = record.getRunHistory();
+        int prevChallengeCount
+
 
         for(int i = 0; i<tempRecords.size(); i++){
+            prevChallengeCount = record.getCompletedCount();
             RunningRecord tempRunningRecord = tempRecords.get(i);
             long startTime = tempRunningRecord.getStartTime().getTime()/1000;
             long endTime = tempRunningRecord.getEndTime().getTime()/1000;
             long tempTime = endTime-startTime;
+
             double tempDistance = tempRunningRecord.getDistance();
             double tempCaloreis = tempRunningRecord.getCalories();
+
 
             if(tempDistance >= 40000){
                 record.setChallenges("Run40k");
@@ -141,9 +146,65 @@ public class IndoorRunnerActivity extends ActionBarActivity implements SensorEve
                 record.setChallenges("Run5k");
             }
 
+            if(tempCaloreis >= 700){
+                record.setChallenges("Burn700cals");
+                record.setChallenges("Burn600cals");
+                record.setChallenges("Burn500cals");
+                record.setChallenges("Burn400cals");
+                record.setChallenges("Burn300cals");
+                record.setChallenges("Burn200cals");
+                record.setChallenges("Burn100cals");
+            }
+            else if(tempCaloreis >= 600){
+                record.setChallenges("Burn600cals");
+                record.setChallenges("Burn500cals");
+                record.setChallenges("Burn400cals");
+                record.setChallenges("Burn300cals");
+                record.setChallenges("Burn200cals");
+                record.setChallenges("Burn100cals");
+            }
+            else if(tempCaloreis >= 500){
+                record.setChallenges("Burn500cals");
+                record.setChallenges("Burn400cals");
+                record.setChallenges("Burn300cals");
+                record.setChallenges("Burn200cals");
+                record.setChallenges("Burn100cals");
+            }
+            else if(tempCaloreis >= 400){
+                record.setChallenges("Burn400cals");
+                record.setChallenges("Burn300cals");
+                record.setChallenges("Burn200cals");
+                record.setChallenges("Burn100cals");
+            }
+            else if(tempCaloreis >= 300){
+                record.setChallenges("Burn300cals");
+                record.setChallenges("Burn200cals");
+                record.setChallenges("Burn100cals");
+            }
+            else if(tempCaloreis >= 200){
+                record.setChallenges("Burn200cals");
+                record.setChallenges("Burn100cals");
+            }
+            else if(tempCaloreis >= 100){
+                record.setChallenges("Burn100cals");
+            }
+
+
         }
 
-
+        int newChallengeCount = record.getCompletedCount();
+        if(newChallengeCount >= 30){
+            record.setChallenges("Get10Challenges");
+            record.setChallenges("Get20Challenges");
+            record.setChallenges("Get30Challenges");
+        }
+        else if(newChallengeCount >= 20){
+            record.setChallenges("Get20Challenges");
+            record.setChallenges("Get10Challenges");
+        }
+        else if(newChallengeCount >= 10){
+            record.setChallenges("Get10Challenges");
+        }
     }
 
     synchronized private void updateLoop(Sensor countSensor){
