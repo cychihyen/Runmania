@@ -44,7 +44,7 @@ public class IndoorRunnerActivity extends ActionBarActivity implements SensorEve
         setContentView(R.layout.activity_indoor_runner);
         sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         activityRunning = true;
-        Date startTime;
+        Date startDate;
 
     try {
         UserJsonReader userJsonReader = new UserJsonReader();
@@ -52,7 +52,9 @@ public class IndoorRunnerActivity extends ActionBarActivity implements SensorEve
         /**
          * Get start time.
          */
-        startTime = Date();
+
+        startDate = new Date();
+        long startTime=new Date().getTime()/1000; // unit: sec
 
         userRecord = userJsonReader.readFromFile();
         Sensor countSensor = sensorManager.getDefaultSensor(Sensor.TYPE_STEP_COUNTER);
@@ -67,19 +69,24 @@ public class IndoorRunnerActivity extends ActionBarActivity implements SensorEve
          */
         updateLoop(countSensor);
 
-        Date endTime = new Date();
+        Date endDate = new Date();
+        long endTime=new Date().getTime()/1000; // unit: sec
         double steps = count;
 
         //user hit stop button -> get end time
 
 
 
-        double cal = calculateCalories();
+        double calories = calculateCalories(startTime, endTime, userRecord); // unit kcal
+
         RunningRecord runningRecord = new RunningRecord(startTime, endTime, cal, totalDistance, userRecord.getWeight(), userRecord.getHeight());
         userRecord.addRunningRecord(runningRecord);
         checkChallenges(userRecord);
 
-        //check challenge (complete -> true)
+
+
+
+
         //update user record (sets function)
         //userJsonWriter.writeeToFile(userRecord);
     }
@@ -91,8 +98,15 @@ public class IndoorRunnerActivity extends ActionBarActivity implements SensorEve
     }
 
 //    To do: implement calculateCalories()
-    public int calculateCalories(){
-        return 1000;
+    public double calculateCalories(long startTime, long endTime, Record userRecord){
+        long totalTime=endTime-startTime;
+
+        double height = userRecord.getHeight();
+        double weight = userRecord.getWeight();
+
+        double BMR = 10 * weight + 6.25 * height - 125 + 5;
+
+        return BMR*totalTime/86400;
     }
 
     public void checkChallenges(Record record){
