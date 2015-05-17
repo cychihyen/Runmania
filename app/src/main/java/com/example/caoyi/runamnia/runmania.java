@@ -95,7 +95,10 @@ public class runmania extends Activity {
     }
 
     public void settingBtnOnClick(View v) {
-        Toast.makeText(getApplicationContext(), "Clicked on Setting Button", Toast.LENGTH_LONG).show();
+        Intent intent = new Intent(this, SettingActivity.class);
+        //Bundle bundle=new Bundle();
+        //intent.putExtras(bundle);
+        startActivity(intent);
     }
 
     public void endBtnOnClick(View v) {

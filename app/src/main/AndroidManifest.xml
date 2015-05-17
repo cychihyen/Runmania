@@ -7,27 +7,28 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
+
         <activity
             android:name=".runmania"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity android:name=".CreateRoomActivity"
             android:label="Create Room" >
-            <intent-filter>
-                <categoty android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
         </activity>
+
         <activity android:name=".IndoorRunnerActivity"
             android:label="indoor run" >
-            <intent-filter>
-                <categoty android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
         </activity>
+
+        <activity android:name=".SettingActivity"
+            android:label="Setting" >
+        </activity>
+
     </application>
 
 </manifest>
