@@ -72,23 +72,12 @@ public class IndoorRunnerActivity extends ActionBarActivity implements SensorEve
         Date endDate = new Date();
         long endTime=new Date().getTime()/1000; // unit: sec
         double steps = count;
-
-        //user hit stop button -> get end time
-
-
-
         double calories = calculateCalories(startTime, endTime, userRecord); // unit kcal
-
         RunningRecord runningRecord = new RunningRecord(startTime, endTime, cal, totalDistance, userRecord.getWeight(), userRecord.getHeight());
         userRecord.addRunningRecord(runningRecord);
         checkChallenges(userRecord);
 
-
-
-
-
-        //update user record (sets function)
-        //userJsonWriter.writeeToFile(userRecord);
+        userJsonWriter.writeToFile(userRecord);
     }
     catch (FileNotFoundException fileNotFoundException){
     }
