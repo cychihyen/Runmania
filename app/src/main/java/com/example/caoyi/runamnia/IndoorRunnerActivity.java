@@ -24,8 +24,6 @@ public class IndoorRunnerActivity extends ActionBarActivity implements SensorEve
     private SensorManager sensorManager;
     private double count;
     boolean activityRunning;
-
-
     private double tempDistance = 0;
     private double tempTimestamp = 0;
     Record userRecord;
@@ -37,10 +35,6 @@ public class IndoorRunnerActivity extends ActionBarActivity implements SensorEve
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        playBtn = (Button) findViewById(R.id.button_start);
-        pauseBtn = (Button) findViewById(R.id.button_end);
-        playBtn.setOnClickListener(this);
-        pauseBtn.setOnClickListener(this);
         setContentView(R.layout.activity_indoor_runner);
         sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         activityRunning = true;
@@ -86,7 +80,6 @@ public class IndoorRunnerActivity extends ActionBarActivity implements SensorEve
     }
     }
 
-//    To do: implement calculateCalories()
     public double calculateCalories(long startTime, long endTime, Record userRecord){
         long totalTime=endTime-startTime;
 
@@ -258,24 +251,6 @@ public class IndoorRunnerActivity extends ActionBarActivity implements SensorEve
     @Override
     public void onAccuracyChanged(Sensor sensor, int accuracy) {}
 
-    public void startRunning(View v) {
-        switch (v.getId()) {
-            /**
-             * Run starts here.
-             */
-            case R.id.button_start:
-                playBtn.setVisibility(Button.GONE);
-                pauseBtn.setVisibility(Button.VISIBLE);
-                break;
-            /**
-             * Run starts here.
-             */
-            case R.id.button_end:
-                pauseBtn.setVisibility(Button.GONE);
-                playBtn.setVisibility(Button.VISIBLE);
-                break;
-        }
-    }
 
     public void endRunning(View v){
         activityRunning = false;
